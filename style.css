@@ -161,7 +161,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 25px 25px 25px;
 }
 
 .header-button-side-right img{
