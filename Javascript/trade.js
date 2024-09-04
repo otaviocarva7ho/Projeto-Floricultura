@@ -1,5 +1,5 @@
-var imgatual = "img/celebration.png";
-var imgafter = "img/Gift card-pana.png";
+var imgatual = "../img/celebration.png";
+var imgafter = "../img/Gift card-pana.png";
 
 function show() {
 
