@@ -1,0 +1,135 @@
+/* Estilos globais */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Inclui padding e border na largura e altura total do elemento */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Adiciona alinhamento horizontal */
+  background-color: #201B2C;
+  min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+  padding: 20px; /* Adiciona algum espaçamento ao redor do conteúdo */
+  font-family: Arial, sans-serif; /* Define uma fonte padrão */
+}
+
+.img-gift {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 12px;
+  width: 100%;
+  max-width: 800px; /* Define um tamanho máximo para a imagem */
+}
+
+#figura {
+  width: 100%; /* Ajusta a largura para preencher o contêiner */
+  max-width: 400px; /* Define um tamanho máximo para a imagem */
+  height: auto;
+  border: 3px solid #ff6699;
+  border-radius: 10px;
+  transition: transform 0.3s ease; 
+}
+
+#figura:hover {
+  transform: scale(1.1);
+}
+
+h2{
+  text-align: center;
+  color: #F9C5BA;
+}
+
+h3{
+  text-align: center;
+  color: #F9C5BA;
+}
+
+
+.btn-show-me {
+  text-align: center;
+  display: block;
+  width: 100%;
+  max-width: 400px; /* Define um tamanho máximo para o botão */
+}
+
+.button {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #F9C5BA;
+  background-color: #201B2C; /* Define uma cor de fundo para o botão */
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #F9C5BA;
+}
+
+.button:hover {
+  color: #201B2C;
+  background-color: #F9C5BA; /* Muda a cor de fundo no hover */
+  transform: scale(1.1);
+  outline: 2px solid #F9C5BA;
+  box-shadow: 4px 5px 17px -4px #F9C5BA;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #F9C5BA;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.button:hover::before {
+  width: 250%;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 600px) {
+  #figura {
+      width: 100%;
+      max-width: none; /* Remove o tamanho máximo para dispositivos móveis */
+  }
+
+  .button {
+      width: 100%;
+  }
+}
+
+/* Media Queries para tablets e dispositivos intermediários */
+@media (min-width: 601px) and (max-width: 900px) {
+  #figura {
+      width: 80%;
+  }
+
+  .button {
+      width: 80%;
+  }
+}
+
+/* Media Queries para desktops */
+@media (min-width: 901px) {
+  #figura {
+      width: 400px;
+  }
+
+  .button {
+      width: auto;
+  }
+}
