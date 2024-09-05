@@ -2,21 +2,20 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; /* Inclui padding e border na largura e altura total do elemento */
+  box-sizing: border-box; 
 }
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Adiciona alinhamento horizontal */
+  align-items: center; 
   background-color: #201B2C;
-  min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
-  padding: 20px; /* Adiciona algum espaçamento ao redor do conteúdo */
-  font-family: Arial, sans-serif; /* Define uma fonte padrão */
+  min-height: 100vh; 
+  padding: 20px;
+  font-family: Arial, sans-serif; 
 }
-
-.img-gift {
+  .img-gift {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,12 +23,12 @@ body {
   border-radius: 15px;
   margin-top: 12px;
   width: 100%;
-  max-width: 800px; /* Define um tamanho máximo para a imagem */
+  max-width: 800px; 
 }
 
 #figura {
-  width: 100%; /* Ajusta a largura para preencher o contêiner */
-  max-width: 400px; /* Define um tamanho máximo para a imagem */
+  width: 100%; 
+  max-width: 400px; 
   height: auto;
   border: 3px solid #ff6699;
   border-radius: 10px;
@@ -38,6 +37,11 @@ body {
 
 #figura:hover {
   transform: scale(1.1);
+}
+
+.desconto{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h2{
@@ -55,7 +59,7 @@ h3{
   text-align: center;
   display: block;
   width: 100%;
-  max-width: 400px; /* Define um tamanho máximo para o botão */
+  max-width: 400px; 
 }
 
 .button {
@@ -67,7 +71,7 @@ h3{
   text-transform: uppercase;
   cursor: pointer;
   color: #F9C5BA;
-  background-color: #201B2C; /* Define uma cor de fundo para o botão */
+  background-color: #201B2C; 
   transition: all 1000ms;
   font-size: 15px;
   position: relative;
@@ -77,7 +81,7 @@ h3{
 
 .button:hover {
   color: #201B2C;
-  background-color: #F9C5BA; /* Muda a cor de fundo no hover */
+  background-color: #F9C5BA; 
   transform: scale(1.1);
   outline: 2px solid #F9C5BA;
   box-shadow: 4px 5px 17px -4px #F9C5BA;
@@ -100,11 +104,11 @@ h3{
   width: 250%;
 }
 
-/* Media Queries para dispositivos móveis */
+
 @media (max-width: 600px) {
   #figura {
       width: 100%;
-      max-width: none; /* Remove o tamanho máximo para dispositivos móveis */
+      max-width: none; 
   }
 
   .button {
@@ -112,7 +116,7 @@ h3{
   }
 }
 
-/* Media Queries para tablets e dispositivos intermediários */
+
 @media (min-width: 601px) and (max-width: 900px) {
   #figura {
       width: 80%;
