@@ -162,6 +162,7 @@ header{
 }
 
 .header-button-side-right{
+    margin-top: 10px;
     flex-basis: 50%;
     display: flex;
     align-items: center;
