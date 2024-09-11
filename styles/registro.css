@@ -45,6 +45,13 @@ body {
     padding: 3rem;
 }
 
+.span-required {
+    font-size: 12px;
+    margin: 3px 0 0 1px;
+    color: #e63636;
+    display: none;
+}
+
 .form-header {
     margin-bottom: 3rem;
     display: flex;
