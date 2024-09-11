@@ -19,18 +19,24 @@
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
-                <div class="textfield">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" id="usuario" placeholder="Usuário" required>
-                </div>
-                <div class="textfield">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                </div>
-                <button class="btn-login"><a href="../index.html">Login</a></button>
-                <button class="btn-login"><a href="../pages/registro.html">Registre-se</a></button>
+                <form id="login-form">
+                    <div class="textfield">
+                        <label for="usuario">Usuário</label>
+                        <input type="text" name="usuario" id="usuario" placeholder="Usuário">
+                        <span class="span-required">Usuário é obrigatório</span>
+                    </div>
+                    <div class="textfield">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Senha">
+                        <span class="span-required">Senha é obrigatória</span>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                    <button type="button" class="btn-login"><a href="../pages/registro.html">Registre-se</a></button>
+                </form>
             </div>
         </div>
     </div>
+    <script src="../Javascript/login.js"></script>
 </body>
+
 </html>
