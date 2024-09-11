@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <title>Flores Do Campo</title>
+    <link rel="stylesheet" href="../styles/payment.css">
+    <script src="../Javascript/credit-card.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card-container">
+
+            <div class="front">
+                <div class="image">
+                    <img src="../img/chip.png" alt="chip">
+                    <img src="../img/visa.png" alt="visa logo">
+                </div>
+                <div class="card-number-box">#### #### #### ####</div>
+                <div class="flexbox">
+                    <div class="box">
+                        <span>Nome do Titular</span>
+                        <div class="card-holder-name">Seu nome</div>
+                    </div>
+                    <div class="box">
+                        <span>Validade</span>
+                        <div class="expiration">
+                            <span class="exp-month">Mês</span>
+                            <span class="exp-year">Ano</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="stripe"></div>
+                <div class="box">
+                    <span>CVV</span>
+                    <div class="cvv-box"></div>
+                    <img src="../img/visa.png" alt="visa logo">
+                </div>
+            </div>
+
+        </div>
+
+        <form action="">
+            <div class="inputBox">
+                <span>Número do cartão</span>
+                <input type="text" class="card-number-input" id="cartao" maxlength="19" oninput="formatarNumero(this)" placeholder="Digite o número do cartão">
+            </div>
+            <div class="inputBox">
+                <span>Nome do Titular do cartão</span>
+                <input type="text" class="card-holder-input" placeholder="Digite seu nome">
+            </div>
+            <div class="flexbox">
+                <div class="inputBox">
+                    <span>Validade (mês)</span>
+                    <select class="month-input">
+                        <option value="month" selected disabled>Mês</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>Validade (Ano)</span>
+                    <select class="year-input">
+                        <option value="year" selected disabled>Ano</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>CVC</span>
+                    <input type="text" maxlength="3" class="cvv-input" placeholder="CVC">
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="submit-btn">
+        </form>
+
+    </div>
+
+    <script>
+        function formatarNumero(input) {
+            let valor = input.value.replace(/\D/g, '');
+            valor = valor.replace(/(.{4})/g, '$1 '); 
+            input.value = valor.trim();
+
+            document.querySelector('.card-number-box').innerText = valor || '#### #### #### ####';
+        }
+
+        document.querySelector('.card-number-input').oninput = () => {
+            formatarNumero(document.querySelector('.card-number-input'));
+        }
+
+        document.querySelector('.card-holder-input').oninput = () => {
+            document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value || 'Nome do titular';
+        }
+
+        document.querySelector('.month-input').onchange = () => {
+            document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value || 'Mês';
+        }
+
+        document.querySelector('.year-input').onchange = () => {
+            document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value || 'Ano';
+        }
+
+        document.querySelector('.cvv-input').onmouseenter = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(-180deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
+        }
+
+        document.querySelector('.cvv-input').onmouseleave = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
+        }
+
+        document.querySelector('.cvv-input').oninput = () => {
+            document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value || 'CVC';
+        }
+    </script>
+
+</body>
+
+</html>

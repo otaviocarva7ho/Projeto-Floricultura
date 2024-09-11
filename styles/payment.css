@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.container {
+    min-height: 100vh;
+    background: #201B2C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 60px;
+}
+
+.container form {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+.container form .inputBox {
+    margin-top: 20px;
+}
+
+.container form .inputBox span {
+    display: block;
+    color: #999;
+    padding-bottom: 5px;
+}
+
+.container form .inputBox input,
+.container form .inputBox select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    color: #444;
+}
+
+.container form .flexbox {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.container form .flexbox .inputBox {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 15px; /* Adicionado para evitar sobreposição */
+}
+
+.container form .submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.container form .submit-btn:hover {
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.container .card-container {
+    margin-bottom: 30px;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.container .card-container .front,
+.container .card-container .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    padding: 20px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+    transform: perspective(1000px);
+    transition: transform .4s ease-out;
+}
+
+.container .card-container .front {
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    transform: rotateY(0deg);
+}
+
+.container .card-container .back {
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    transform: rotateY(180deg);
+}
+
+.container .card-container .front .image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.container .card-container .front .image img {
+    height: 50px;
+}
+
+.container .card-container .front .card-number-box {
+    padding: 20px 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.container .card-container .front .flexbox {
+    display: flex;
+}
+
+.container .card-container .front .flexbox .box {
+    font-size: 15px;
+    color: #fff;
+}
+
+.container .card-container .back .stripe {
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.container .card-container .back .box {
+    padding: 0 20px;
+}
+
+.container .card-container .back .box span {
+    color: #fff;
+    font-size: 14px;
+}
+
+.container .card-container .back .box .cvv-box {
+    height: 50px;
+    padding: 12px;
+    margin-top: 5px;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.container .card-container .back .box img {
+    margin-top: 30px;
+    height: 30px;
+}
+
+@media (min-width: 1024px) {
+    .container form {
+        width: 600px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container form {
+        width: 80%;
+    }
+
+    .container .card-container {
+        height: 250px;
+        max-width: 350px;
+    }
+
+    .container .card-container .front .image img {
+        height: 40px;
+    }
+
+    .container .card-container .front .card-number-box {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container form {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container .card-container {
+        height: 220px;
+        margin-bottom: 40px
+    }
+
+    .container .card-container .front .image img {
+        height: 30px;
+    }
+
+    .container .card-container .front .card-number-box {
+        font-size: 18px;
+    }
+
+    .container form .flexbox .inputBox {
+        flex: 1 1 100%;
+    }
+
+    .container form .inputBox {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container form {
+        padding: 5px;
+    }
+
+    .container .card-container {
+        height: 200px;
+        margin-bottom: 25px;
+    }
+
+    .container .card-container .front .image img {
+        height: 25px;
+    }
+
+    .container .card-container .front .card-number-box {
+        font-size: 16px;
+    }
+
+    .container form .submit-btn {
+        font-size: 18px;
+    }
+}
