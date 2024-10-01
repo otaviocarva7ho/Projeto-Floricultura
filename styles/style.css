@@ -68,8 +68,9 @@ a {
 }
 
 nav ul li:hover{
-    transform: translateY(-5px);
-    transition: all 0.2s;
+    transform: translateX(3px);
+    transform: translateY(-1px);
+    transition: all .3s ease-in-out;
     font-weight: bold;
 }
 
@@ -93,7 +94,7 @@ nav ul li:hover{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: background-color .3s;
+    transition: background-color .5s;
   }
   
   .button__icon-wrapper {
@@ -123,12 +124,12 @@ nav ul li:hover{
   }
   
   .button:hover .button__icon-svg:first-child {
-    transition: transform .3s ease-in-out;
+    transition: transform .5s ease-in-out;
     transform: translate(150%, -150%);
   }
   
   .button:hover .button__icon-svg--copy {
-    transition: transform .3s ease-in-out .1s;
+    transition: transform .5s ease-in-out .1s;
     transform: translate(0);
   }
 
@@ -177,7 +178,7 @@ header{
 }
 
 /*media queries(mobile layout)*/
-@media (max-width: 800px){
+@media (max-width: 768px){
     .logo{
         font-size: 1.2rem;
     }
@@ -223,6 +224,7 @@ main{
 
 .gray-background{
     background-color: #201B2C;
+    padding: 2rem 0;
 }
 
 .page-inner{
@@ -233,7 +235,7 @@ main{
 .cols{
     display: grid;
     justify-content: space-evenly;
-    padding: 4rem 1rem;
+    padding: 7rem 4rem;
 }
 
 .cols-3{
@@ -244,6 +246,7 @@ main{
 .cols-3 img{
     max-width: 100%;
 }
+
 
 .cols-4 img{
     max-width: 100%;
@@ -296,4 +299,17 @@ main{
 
 .product-price span{
     font-weight: 600;
+}
+
+.foote {
+    text-align: center;
+    background-color: #201B2C;
+    color: #FFFFFF;
+}
+.footer-container{
+    background-color: #201B2C;
+}
+
+.footer-bottom{
+    background-color: #201B2C;
 }
