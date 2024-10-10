@@ -17,7 +17,6 @@
                 <ul>
                     <li> <a href="#Home">Home</a></li>
                     <li> <a href="#Flores">Produtos</a></li>
-                    <li> <a href="#">Sobre nós</a></li>
                     <li> <a href="pages/login.html">Login</a></li>
                 </ul>
             </nav>
@@ -32,46 +31,40 @@
     </header>
     <main>
 
-        <div>
+        <div class="seja-bem-vindo">
+            <div class="imgdefault">
+                <img id="img-default" src="img/Seja bem-vindo.png" alt="Seja bem-vindo">
+            </div>
+            <div class="imgp">
+                <img id="img-pequena" src="img/seja-bem-vindo-p.png" alt="Seja bem-vindo pequeno" style="display: none;">
+            </div>
+        </div>
+        
+        <div id="Home">
             <h3>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ</h3>
         </div>
-
-        <div class="carousel" id="Home">
-            <button class="prev">❮</button>
-            <div class="carousel-images">
-                <div class="carousel-item">
-                    <img src="img/Buque rosa vermelha.png" alt="Imagem 1">
-                    <div class="carousel-text">
-                        <h2>Buquê de Rosas Vermelhas</h2>
-                        <p>Um buquê clássico e elegante para ocasiões especiais.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/Cesta café da manha.png" alt="Imagem 2">
-                    <div class="carousel-text">
-                        <h2>Cesta Café da Manhã</h2>
-                        <p>Delicie-se com uma cesta cheia de delícias matinais.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/seçaovinhos.png" alt="Imagem 3">
-                    <div class="carousel-text">
-                        <h2>Vinhos Selecionados</h2>
-                        <p>Acompanhamentos perfeitos para uma noite especial.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/caixa de bombons.png" alt="Imagem 4">
-                    <div class="carousel-text">
-                        <h2>Caixa de Bombons</h2>
-                        <p>Surpreenda com uma seleção especial de bombons.</p>
-                    </div>
-                </div>
+        
+        <div class="carrossel">
+            <div class="imagens">
+                <img src="img/Buque rosa vermelha.png" alt="Imagem 1">
+                <img src="img/Cesta romantica.png" alt="Imagem 2">
+                <img src="img/seçaovinhos.png" alt="Imagem 3">
+                <img src="img/caixa de bombons.png" alt="Imagem 4">
             </div>
+            <button class="prev">❮</button>
             <button class="next">❯</button>
         </div>
         
     
+                <h3>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </h3>
+
+
+            
     <div class="page-inner">
         <h3 class="section-title" id="Flores">Flores</h3>
         <div class="subtitle-underline"></div>
@@ -247,70 +240,47 @@
                     </div>
                 </div>
             </div>
+
+            <div class="rodape">
+                <div class="rodape-conteudo">
+                    <div class="sobre">
+                        <h3>Flores do Campo</h3>
+                        <p>Obrigado por visitar nosso site! Esperamos ter a oportunidade de trabalhar com você novamente. Para qualquer dúvida ou necessidade, estamos à disposição.</p>
+                    </div>
+            
+                    <div class="links">
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="#sobre">Sobre nós</a></li>
+                            <li><a href="#produtos">Nossos Produtos</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+            
+                    <div class="contato">
+                        <h3>Contato</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
+                            <li><i class="fas fa-envelope"></i> contato@floresdocampo.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123, Franca - SP</li>
+                        </ul>
+                    </div>
+            
+                    <div class="social">
+                        <h3>Siga-nos</h3>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            
+                <div class="rodape-final">
+                    <p>&copy; 2024 Flores do Campo. Todos os direitos reservados.</p>
+                </div>
+            </div>
+            
             
         </main>
-        <script>
-        const navbar = document.querySelector(".navbar");
-        const  menuButton = document.querySelector(".menu-button");
-
-        menuButton.addEventListener("click", () => {
-            navbar.classList.toggle("show-menu");
-        });  
-        
-        // Seleciona os elementos
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const carouselImages = document.querySelector('.carousel-images');
-const images = document.querySelectorAll('.carousel-images img');
-
-// Variáveis de controle
-let currentIndex = 0;
-const totalImages = images.length;
-
-// Função para mover o carrossel
-function updateCarousel() {
-    // Move o container de imagens baseado no índice atual
-    const offset = -currentIndex * 100;
-    carouselImages.style.transform = `translateX(${offset}%)`;
-}
-
-// Evento para botão "anterior"
-prevButton.addEventListener('click', () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = totalImages - 1;
-    }
-    updateCarousel();
-});
-
-// Evento para botão "próximo"
-nextButton.addEventListener('click', () => {
-    currentIndex++;
-    if (currentIndex >= totalImages) {
-        currentIndex = 0;
-    }
-    updateCarousel();
-});
-let autoSlide = setInterval(() => {
-    currentIndex++;
-    if (currentIndex >= totalImages) {
-        currentIndex = 0;
-    }
-    updateCarousel();
-}, 7000);
-
-carouselImages.addEventListener('mouseover', () => clearInterval(autoSlide));
-carouselImages.addEventListener('mouseout', () => {
-    autoSlide = setInterval(() => {
-        currentIndex++;
-        if (currentIndex >= totalImages) {
-            currentIndex = 0;
-        }
-        updateCarousel();
-    }, 3000);
-});
-
-
-    </script> 
+        <script src="Javascript/scripts.js"></script>
 </body>
-</html>
+</html>             

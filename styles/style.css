@@ -75,77 +75,60 @@ nav ul li:hover {
     display: none;
 }
 
-.carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%; 
-    max-width: 500px; 
-    margin: auto; 
-    overflow: hidden;
-    padding: 0;
-    box-shadow:2px 2px 4px black;
-    flex-direction: row;
-}
-
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    position: relative;
-    min-width: 100%;
-    flex-direction: column;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-}
-
-.carousel-text {
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5); 
+.seja-bem-vindo{
     padding: 20px;
-    border-radius: 10px;
-    max-width: 90%;
-    text-align: left;
 }
 
-.carousel-text h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+.seja-bem-vindo img{
+    margin: 50px;
 }
 
-.carousel-text p {
-    font-size: 1.2rem;
+
+.carrossel {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+    margin-right: 25px;
+    margin-top: -600px;
 }
 
-button.prev, button.next {
+.imagens {
+    display: flex;
+    transition: transform 0.7s ease; 
+}
+.imagens img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
+
+.prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.7);
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 2rem;
+    z-index: 10; /* Coloca os botões acima das imagens */
 }
 
-button.prev {
+.prev {
     left: 10px;
 }
 
-button.next {
+.next {
     right: 10px;
 }
 
+@media (max-width: 768px) {
+    .carrossel{
+        width: 200px;
+        margin-right: 10px;
+        margin-top: 0;
+    }
+}
 
 /* Button styles */
 .button {
@@ -256,15 +239,20 @@ header {
         padding-top: 4rem;
     }
     nav ul {
-        display: none; /* Esconde o menu */
-        flex-direction: column; /* Coloca os itens em coluna */
-        position: absolute; /* Para sobrepor */
-        top: 60px; /* Ajuste conforme necessário */
+        display: none;
+        flex-direction: column; 
+        position: absolute;
+        top: 60px;
         left: 0;
         right: 0;
-        background-color: #201B2C; /* Cor de fundo para o menu */
-        z-index: 99; /* Para estar acima de outros elementos */
+        background-color: #201B2C; 
+        z-index: 99;
     }
+
+    nav ul.show-menu {
+        display: flex;
+    }
+    
     .menu-button {
         display: block;
     }
@@ -282,30 +270,18 @@ header {
         margin: 1rem 0;
         text-align: center;
     }
-    .carousel-item {
-        flex-direction: column; 
-        text-align: center; 
-    }
-
-    .carousel-images {
-        max-width: 100%; 
-    }
-
-    .carousel-item img {
-        width: 100%; 
-        height: auto; 
-    }
-
-    .carousel-text {
-        margin-top: 10px;
-        padding: 15px;
-    }
 
     button {
         padding: 5px;
         font-size: 18px;
     }
 
+}
+
+@media (min-width: 769px) {
+    .menu-button {
+        display: none;
+    }
 }
 
 /* Main Styles */
@@ -374,6 +350,16 @@ main {
     flex-direction: column;
 }
 
+.product {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.product:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 .product-name {
     font-weight: 600;
     margin-top: 0.4rem;
@@ -386,6 +372,13 @@ main {
 
 .product-price span {
     font-weight: 600;
+}
+
+@media (min-width: 769px){
+    .product{
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .cupom{
