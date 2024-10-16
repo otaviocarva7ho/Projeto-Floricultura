@@ -4,47 +4,60 @@ const navbar = document.querySelector(".navbar");
                 menuButton.addEventListener("click", () => {
                 navbar.classList.toggle("show-menu");
                 });
-                let imginicial = 0;
-                const imagens = document.querySelectorAll('.imagens img');
-                const totalImagens = imagens.length;
-                const intervaloTroca = 7000;
-                
-                document.querySelector('.prev').addEventListener('click', () => {
-                    imginicial = (imginicial - 1 + totalImagens) % totalImagens;
-                    updateCarrossel();
-                });
-                
-                document.querySelector('.next').addEventListener('click', () => {
-                    imginicial = (imginicial + 1) % totalImagens;
-                    updateCarrossel();
-                });
-                
-                function updateCarrossel() {
-                    const offset = -imginicial * 100; // Corrigir 'constoffset' para 'const offset' e ajustar o cálculo para negativo
-                    document.querySelector('.imagens').style.transform = `translateX(${offset}%)`;
-                }
-                setInterval(proximaImagem, intervaloTroca);
 
-                // Função para atualizar a imagem com base na largura da tela
-                function atualizarImagem() {
-                    const imgDefault = document.getElementById('img-default');
-                    const imgPequena = document.getElementById('img-pequena');
-                    const largura = window.innerWidth;
+                class Carosel {
+                    constructor(conteiner, itens, controls) {
+                        this.caroselConteiner = conteiner;
+                        this.caroselControl = controls;
+                        this.caroselArray = [...itens];
+                        this.setControls(); // Chame este método no construtor
+                        this.useControls();  // Chame este método no construtor
+                    }
                 
-                    if (largura <= 768) {
-                        // Exibir imagem pequena em telas menores
-                        imgDefault.style.display = 'none';
-                        imgPequena.style.display = 'block';
-                    } else {
-                        // Exibir imagem padrão em telas maiores
-                        imgDefault.style.display = 'block';
-                        imgPequena.style.display = 'none';
+                    updateCarousel() {
+                        this.caroselArray.forEach(el => {
+                            el.classList.remove('img-item-1', 'img-item-2', 'img-item-3', 'img-item-4', 'img-item-5');
+                        });
+                
+                        this.caroselArray.slice(0, 5).forEach((el, i) => {
+                            el.classList.add(`img-item-${i + 1}`);
+                        });
+                    }
+                
+                    setCurrentState(direction) {
+                        if (direction.className.includes('previous')) {
+                            this.caroselArray.unshift(this.caroselArray.pop());
+                        } else {
+                            this.caroselArray.push(this.caroselArray.shift());
+                        }
+                        this.updateCarousel();
+                    }
+                
+                    setControls() {
+                        const controls = ['previous', 'next']; // Defina os controles aqui
+                        controls.forEach(control => {
+                            const button = document.createElement('button');
+                            button.className = `control-${control}`;
+                            button.innerText = control === 'previous' ? 'Anterior' : 'Próximo';
+                            this.caroselControl.appendChild(button);
+                        });
+                    }
+                
+                    useControls() {
+                        const triggers = document.querySelectorAll('.control button');
+                        triggers.forEach(control => {
+                            control.addEventListener('click', e => {
+                                e.preventDefault();
+                                this.setCurrentState(control);
+                            });
+                        });
                     }
                 }
                 
-                // Chama a função ao carregar a página
-                atualizarImagem();
+                // Inicialize o carrossel
+                const caroselConteiner = document.querySelector('.carosel-conteiner');
+                const caroselItens = document.querySelectorAll('.img-item');
+                const caroselControl = document.querySelector('.control'); // Selecione o contêiner de controle
                 
-                // Adiciona um listener para redimensionamento da janela
-                window.addEventListener('resize', atualizarImagem);
+                const exCarousel = new Carosel(caroselConteiner, caroselItens, caroselControl);
                 
