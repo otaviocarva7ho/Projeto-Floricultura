@@ -61,3 +61,69 @@ const navbar = document.querySelector(".navbar");
                 
                 const exCarousel = new Carosel(caroselConteiner, caroselItens, caroselControl);
                 
+                
+                                        // Adiciona um evento de clique a todos os botões "Adicionar a sacola!"
+        const addToCartButtons = document.querySelectorAll('.add-sacola')
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productElement = button.closest('.product');
+                const productName = productElement.getAttribute('data-name');
+                const productPrice = productElement.getAttribute('data-price');
+                const productImage = productElement.getAttribute('data-image')
+                
+                addToCart(productName, productPrice, productSize, productColor);
+            });
+        });
+
+
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                function addToCart(productId, productName, productPrice,productImage) {
+                    const item = {
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        Image: productImage
+                    };
+                
+                    cartItems.push(item);
+                
+                    document.getElementById('cart-count').innerText = cartItems.length;
+                
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    alert('Produto adicionado à sacola!');
+                }
+
+                document.querySelectorAll('.add-sacola').forEach(button => {
+                    button.addEventListener('click', function () {
+                    
+                        const productElement = this.closest('.product');
+                    
+                        const productId = productElement.getAttribute('data-id');
+                        const productName = productElement.getAttribute('data-name');
+                        const productPrice = productElement.getAttribute('data-price');
+                        const productImage = productElement.getAttribute('data-image');
+                    
+                    
+                        addToCart(productId, productName, productPrice, productImage);
+                    });
+                });
+
+
+                const cartItemsContainer = document.getElementById('cart-items');
+
+                if (cartItems.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                } else {
+                    cartItems.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.innerHTML = `
+                            <p>Produto: ${item.name}</p>
+                            <p>Preço: ${item.price} R$</p>
+                            <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto;">
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                    });
+                }
+
+                
