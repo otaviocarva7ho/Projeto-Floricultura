@@ -10,10 +10,10 @@ const navbar = document.querySelector(".navbar");
                         this.caroselConteiner = conteiner;
                         this.caroselControl = controls;
                         this.caroselArray = [...itens];
-                        this.caroselTexto = texto; // Novo atributo para o texto
+                        this.caroselTexto = texto; 
                         this.setControls(); 
                         this.useControls();  
-                        this.updateCarousel(); // Atualizar o texto no início
+                        this.updateCarousel();
                     }
                     
                     updateCarousel() {
@@ -23,8 +23,8 @@ const navbar = document.querySelector(".navbar");
                 
                         this.caroselArray.slice(0, 5).forEach((el, i) => {
                             el.classList.add(`img-item-${i + 1}`);
-                            // Atualizando o texto correspondente à imagem atual
-                            if (i === 2) { // A imagem do meio
+                          
+                            if (i === 2) {
                                 const img = el.querySelector('img');
                                 const text = img.getAttribute('data-text') || 'Texto padrão para a imagem.';
                                 this.caroselTexto.innerText = text;
@@ -62,7 +62,6 @@ const navbar = document.querySelector(".navbar");
                     }
                 }
                 
-                // Selecionando o elemento de texto
                 const caroselTexto = document.querySelector('.carosel-texto');
                 
                 const caroselConteiner = document.querySelector('.carosel-conteiner');

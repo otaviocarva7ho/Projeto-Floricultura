@@ -2,19 +2,17 @@ const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
 
-// Inicializa o valor total
+
 let totalPrice = 0;
 
-// Verifica se o carrinho está vazio
-// Verifica se o carrinho está vazio
+
 if (cartItems.length === 0) {
     cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
 } else {
     cartItems.forEach(item => {
         const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item'); // Adiciona a classe de estilo
+        itemElement.classList.add('cart-item');
 
-        // Exibe os detalhes do produto e a imagem alinhada à direita
         itemElement.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
@@ -27,11 +25,11 @@ if (cartItems.length === 0) {
 
         cartItemsContainer.appendChild(itemElement);
 
-        // Soma o preço dos itens ao total
+
         totalPrice += parseFloat(item.price);
     });
 
-    // Exibe o valor total do carrinho
+
     cartTotalElement.innerText = `Total: ${totalPrice.toFixed(2)} R$`;
 }
 

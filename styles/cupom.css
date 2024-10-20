@@ -1,4 +1,4 @@
-/* Estilos globais */
+
 * {
   padding: 0;
   margin: 0;
@@ -137,7 +137,6 @@ h3{
   }
 }
 
-/* Media Queries para desktops */
 @media (min-width: 901px) {
   #figura {
       width: 400px;

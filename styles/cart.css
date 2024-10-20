@@ -38,12 +38,12 @@ h1 {
     text-align: right;
     margin-top: 20px;
     color: #A54A4A;
-    background-color: #FFF9F6; /* Cor de fundo para destacar */
+    background-color: #FFF9F6; 
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     max-width: 800px;
-    margin: 20px auto 0; /* Centraliza na tela */
+    margin: 20px auto 0; 
 }
 
 #finish-buy, #clear-cart {
