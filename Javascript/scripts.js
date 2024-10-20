@@ -6,14 +6,16 @@ const navbar = document.querySelector(".navbar");
                 });
 
                 class Carosel {
-                    constructor(conteiner, itens, controls) {
+                    constructor(conteiner, itens, controls, texto) {
                         this.caroselConteiner = conteiner;
                         this.caroselControl = controls;
                         this.caroselArray = [...itens];
-                        this.setControls(); // Chame este método no construtor
-                        this.useControls();  // Chame este método no construtor
+                        this.caroselTexto = texto; // Novo atributo para o texto
+                        this.setControls(); 
+                        this.useControls();  
+                        this.updateCarousel(); // Atualizar o texto no início
                     }
-                
+                    
                     updateCarousel() {
                         this.caroselArray.forEach(el => {
                             el.classList.remove('img-item-1', 'img-item-2', 'img-item-3', 'img-item-4', 'img-item-5');
@@ -21,6 +23,12 @@ const navbar = document.querySelector(".navbar");
                 
                         this.caroselArray.slice(0, 5).forEach((el, i) => {
                             el.classList.add(`img-item-${i + 1}`);
+                            // Atualizando o texto correspondente à imagem atual
+                            if (i === 2) { // A imagem do meio
+                                const img = el.querySelector('img');
+                                const text = img.getAttribute('data-text') || 'Texto padrão para a imagem.';
+                                this.caroselTexto.innerText = text;
+                            }
                         });
                     }
                 
@@ -34,7 +42,7 @@ const navbar = document.querySelector(".navbar");
                     }
                 
                     setControls() {
-                        const controls = ['previous', 'next']; // Defina os controles aqui
+                        const controls = ['previous', 'next']; 
                         controls.forEach(control => {
                             const button = document.createElement('button');
                             button.className = `control-${control}`;
@@ -54,76 +62,54 @@ const navbar = document.querySelector(".navbar");
                     }
                 }
                 
-                // Inicialize o carrossel
+                // Selecionando o elemento de texto
+                const caroselTexto = document.querySelector('.carosel-texto');
+                
                 const caroselConteiner = document.querySelector('.carosel-conteiner');
                 const caroselItens = document.querySelectorAll('.img-item');
-                const caroselControl = document.querySelector('.control'); // Selecione o contêiner de controle
+                const caroselControl = document.querySelector('.control'); 
                 
-                const exCarousel = new Carosel(caroselConteiner, caroselItens, caroselControl);
+                const exCarousel = new Carosel(caroselConteiner, caroselItens, caroselControl, caroselTexto);
                 
                 
-                                        // Adiciona um evento de clique a todos os botões "Adicionar a sacola!"
-        const addToCartButtons = document.querySelectorAll('.add-sacola')
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const productElement = button.closest('.product');
-                const productName = productElement.getAttribute('data-name');
-                const productPrice = productElement.getAttribute('data-price');
-                const productImage = productElement.getAttribute('data-image')
                 
-                addToCart(productName, productPrice, productSize, productColor);
-            });
-        });
+const addToCartButtons = document.querySelectorAll('.add-sacola');
 
 
-                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const productElement = button.closest('.product'); 
+        const productId = productElement.getAttribute('data-id'); 
+        const productName = productElement.getAttribute('data-name'); 
+        const productPrice = productElement.getAttribute('data-price'); 
+        const productImg = productElement.getAttribute('data-image'); 
 
-                function addToCart(productId, productName, productPrice,productImage) {
-                    const item = {
-                        id: productId,
-                        name: productName,
-                        price: productPrice,
-                        Image: productImage
-                    };
-                
-                    cartItems.push(item);
-                
-                    document.getElementById('cart-count').innerText = cartItems.length;
-                
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    alert('Produto adicionado à sacola!');
-                }
+        
+        console.log("ID:", productId);
+        console.log("Nome:", productName);
+        console.log("Preço:", productPrice);
+        console.log("Imagem:", productImg); 
+        
+        addToCart(productId, productName, productPrice, productImg);
+    });
+});
 
-                document.querySelectorAll('.add-sacola').forEach(button => {
-                    button.addEventListener('click', function () {
-                    
-                        const productElement = this.closest('.product');
-                    
-                        const productId = productElement.getAttribute('data-id');
-                        const productName = productElement.getAttribute('data-name');
-                        const productPrice = productElement.getAttribute('data-price');
-                        const productImage = productElement.getAttribute('data-image');
-                    
-                    
-                        addToCart(productId, productName, productPrice, productImage);
-                    });
-                });
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-
-                const cartItemsContainer = document.getElementById('cart-items');
-
-                if (cartItems.length === 0) {
-                    cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
-                } else {
-                    cartItems.forEach(item => {
-                        const itemElement = document.createElement('div');
-                        itemElement.innerHTML = `
-                            <p>Produto: ${item.name}</p>
-                            <p>Preço: ${item.price} R$</p>
-                            <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto;">
-                        `;
-                        cartItemsContainer.appendChild(itemElement);
-                    });
-                }
-
-                
+function addToCart(productId, productName, productPrice, productImg) {
+    console.log(productImg);
+    const item = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImg 
+    };
+    
+    cartItems.push(item);
+    
+    document.getElementById('cart-count').innerText = cartItems.length;
+    
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    alert('Produto adicionado à sacola!');
+}

@@ -93,11 +93,11 @@ nav ul li:hover {
 /*fim do header*/
 
 
-/*Carroussel*/
 .bv{
     text-align: center;
     font-size: 1.8rem;
 }
+/*Carroussel*/
 
 .carosel{
     width: 100%;
@@ -179,16 +179,16 @@ nav ul li:hover {
 }
 
 .control button{
-    background-color: #f9c5ba; /* Cor de fundo para maior visibilidade */
-    border: 1px solid #201B2C; /* Adicionando uma borda para melhor definição */
+    background-color: #f9c5ba;
+    border: 1px solid #201B2C;
     cursor: pointer;
-    font-size: 20px; /* Ajustando o tamanho da fonte para melhor visualização */
-    padding: 10px 20px; /* Adicionando espaçamento */
-    border-radius: 5px; /* Bordas arredondadas para os botões */
+    font-size: 20px; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
 }
 
 .control button:hover {
-    background-color: #e9b3a1; /* Cor ao passar o mouse */
+    background-color: #e9b3a1; 
 }
 
 .control-button:focus{
@@ -263,22 +263,44 @@ nav ul li:hover {
     background: #555;
 }
 
+.carosel-texto {
+    text-align: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 500px;
+    font-size: 18px; 
+    margin-top: 80px; 
+    margin-left: 490px;
+    border: 5px solid #555; 
+    background: #f9c5ba; 
+    padding: 10px; 
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 600px) {
     .carosel-conteiner {
-        height: 300px; /* Diminuindo a altura para dispositivos menores */
+        height: 300px; 
     }
 
     .img-item {
-        width: 90%; /* Aumentando a largura para ocupar mais espaço */
-        max-width: 100%; /* Garantindo que não exceda o contêiner */
+        width: 90%;
+        max-width: 100%; 
     }
     .control{
         margin-top: 120px;
     }
 
     .control button {
-        font-size: 16px; /* Reduzindo o tamanho da fonte */
-        padding: 8px 15px; /* Ajustando o espaçamento do botão */
+        font-size: 16px;
+        padding: 8px 15px; 
+    }
+    .carosel-texto {
+        width: 90%; 
+        font-size: 16px; 
+        margin: auto;
+        margin-top: 105px;
     }
 }
 @media (min-width: 601px) and (max-width: 768px) {
@@ -287,7 +309,13 @@ nav ul li:hover {
         margin-bottom: 25px;
     }
     .img-item {
-        width: 70%; /* Ajuste de largura para telas médias */
+        width: 70%; /
+    }
+    .carosel-texto {
+        width: 90%; 
+        font-size: 16px; 
+        margin: auto;
+        margin-top: 155px;
     }
 }
 
@@ -548,24 +576,24 @@ main {
 }
 
 .cart-shop {
-    font-size: 18px; /* Aumentar a fonte */
-    text-align: center; /* Centralizar texto */
-    margin-top: 0.5rem; /* Espaçamento superior */
+    font-size: 18px; 
+    text-align: center; 
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 .cart-shop a {
-    display: inline-block; /* Para ter um espaço ao redor */
-    background-color: palevioletred; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    padding: 0.5rem 1rem; /* Espaçamento */
-    border-radius: 5px; /* Bordas arredondadas */
-    text-decoration: none; /* Remover sublinhado */
-    transition: background-color 0.3s; /* Transição para a cor de fundo */
+    display: inline-block; 
+    background-color: palevioletred; 
+    color: #fff; 
+    padding: 0.5rem 1rem; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s; 
 }
 
 .cart-shop a:hover {
-    background-color: #fda594; /* Cor de fundo ao passar o mouse */
+    background-color: #fda594; 
     text-decoration: underline;
 }
 
@@ -585,8 +613,8 @@ main {
         overflow-x: hidden;
     }
     .cols-4 {
-        grid-template-columns: 1fr; /* 1 produto por linha */
-        padding: 2rem 1rem; /* Ajustar o padding */
+        grid-template-columns: 1fr; 
+        padding: 2rem 1rem; 
     }
 
     .product {
@@ -595,12 +623,12 @@ main {
     }
 
     .product img {
-        max-width: 200px; /* Manter tamanho da imagem */
-        height: auto; /* Manter a proporção */
+        max-width: 200px; 
+        height: auto; 
     }
 
     .cart-shop {
-        font-size: 12px; /* Ajustar tamanho da fonte */
+        font-size: 12px; 
     }
 }
 
@@ -622,8 +650,8 @@ main {
 
 /* rodapé*/
 .rodape {
-    background-color: #0f172a; /* Cor de fundo do rodapé */
-    color: #F9C5BA; /* Cor do texto */
+    background-color: #0f172a;
+    color: #F9C5BA; 
     padding: 2rem 0;
     text-align: center;
     width: 100%;
@@ -674,6 +702,6 @@ main {
 
     .header-button-side-left h3,
     .header-button-side-right h2 {
-        font-size: 1.8rem; /* Diminuindo o tamanho da fonte em telas menores */
+        font-size: 1.8rem;
     }
 }

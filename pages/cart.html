@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
     <title>Carrinho de Compras</title>
     <link rel="stylesheet" href="../styles/cart.css">
 </head>
 <body>
     <h1>Seu Carrinho de Compras</h1>
     <div id="cart-items"></div>
-    <button src="../pages/pagamento.html" id="finish-buy">Finalizar compra</button>
+    <p id="cart-total">Total: 0 R$</p>
+    <button id="finish-buy" onclick="location.href='../pages/pagamento.html'">Finalizar compra</button>
     <button id="clear-cart" onclick="clearCart()">Limpar Carrinho</button>
     <script src="../Javascript/cart.js"></script>
 </body>

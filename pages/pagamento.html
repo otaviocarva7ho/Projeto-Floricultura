@@ -1,13 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../img/favicon.png">
-    <title>Flores Do Campo</title>
+    <title>Flores do Campo - Pagamento</title>
+    <link rel="stylesheet" href="../styles/pagamentos.css">
 </head>
 <body>
-    
+    <div id="payment-methods">
+        <h2>Escolha o método de pagamento</h2>
+        <label>
+            <input type="radio" name="payment-method" value="pix" checked> Pagamento via Pix
+        </label>
+        <label>
+            <input type="radio" name="payment-method" value="cartao"> Pagamento com Cartão
+        </label>
+    </div>
+
+    <div id="payment-form">
+        <div id="pix-form">
+            <h3>Pagar com Pix</h3>
+            <p>Escaneie o código QR abaixo para concluir o pagamento:</p>
+            <img src="../img/qrcode.png" alt="QR Code do Pix" class="qr-code">
+            <p>Ou copie e cole o código Pix: <strong id="pix-key">f0783135-b714-4467-8035-572cf2033848</strong></p>
+            <button id="copy-pix-key" class="submit-btn">Copiar Chave Pix</button>
+        </div>
+        
+        <div class="container" id="card-form" style="display: none;">
+            <div class="card-container">
+                <div class="front">
+                    <div class="image">
+                        <img src="../img/chip.png" alt="Chip">
+                        <img src="../img/visa.png" alt="Visa logo">
+                    </div>
+                    <div class="card-number-box">#### #### #### ####</div>
+                    <div class="flexbox">
+                        <div class="box">
+                            <span>Nome do Titular</span>
+                            <div class="card-holder-name">Seu nome</div>
+                        </div>
+                        <div class="box">
+                            <span>Validade</span>
+                            <div class="expiration">
+                                <span class="exp-month">Mês</span>
+                                <span class="exp-year">Ano</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="stripe"></div>
+                    <div class="box">
+                        <span>CVV</span>
+                        <div class="cvv-box"></div>
+                        <img src="../img/visa.png" alt="Visa logo">
+                    </div>
+                </div>
+            </div>
+
+            <form>
+                <div class="inputBox">
+                    <span>Número do cartão</span>
+                    <input type="text" class="card-number-input" maxlength="19" oninput="formatarNumero(this)" placeholder="Digite o número do cartão" required>
+                </div>
+                <div class="inputBox">
+                    <span>Nome do Titular do cartão</span>
+                    <input type="text" class="card-holder-input" placeholder="Digite seu nome" required>
+                </div>
+                <div class="flexbox">
+                    <div class="inputBox">
+                        <span>Validade (mês)</span>
+                        <select class="month-input" required>
+                            <option value="" selected disabled>Mês</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="inputBox">
+                        <span>Validade (ano)</span>
+                        <select class="year-input" required>
+                            <option value="" selected disabled>Ano</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                        </select>
+                    </div>
+                    <div class="inputBox">
+                        <span>CVC</span>
+                        <input type="text" maxlength="3" class="cvv-input" placeholder="CVC" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../Javascript/pagamentos.js"></script>
 </body>
 </html>

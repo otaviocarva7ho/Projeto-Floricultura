@@ -1,0 +1,166 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9c5ba;
+    color: #333;
+    padding: 20px;
+}
+
+
+h2 {
+    text-align: center;
+    color: #A54A4A;
+}
+
+#payment-methods, #payment-form {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #FFF9F6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#payment-methods label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.qr-code {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.container form {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.inputBox {
+    margin-top: 20px;
+}
+
+.inputBox span {
+    display: block;
+    color: #999;
+    padding-bottom: 5px;
+}
+
+.inputBox input,
+.inputBox select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #444;
+}
+
+.flexbox {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.flexbox .inputBox {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.submit-btn:hover {
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.card-container {
+    margin-bottom: 30px;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.card-container .front,
+.card-container .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    padding: 20px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+    transform: perspective(1000px);
+    transition: transform .4s ease-out;
+}
+
+.card-container .front {
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    transform: rotateY(0deg);
+}
+
+.card-container .back {
+    background: linear-gradient(45deg, #F9C5BA, deeppink);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.card-container .front .image img {
+    width: 60px;
+}
+
+.card-container .front .card-number-box {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.card-container .back .stripe {
+    height: 50%;
+    width: 100%;
+    background: #000;
+}
+
+.card-container .back .cvv-box {
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;
+    line-height: 40px;
+}
