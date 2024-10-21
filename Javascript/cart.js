@@ -31,6 +31,7 @@ if (cartItems.length === 0) {
 
 
     cartTotalElement.innerText = `Total: ${totalPrice.toFixed(2)} R$`;
+
 }
 
 
